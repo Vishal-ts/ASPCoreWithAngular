@@ -1,0 +1,27 @@
+<h1>City data</h1>
+
+<p *ngIf="!cityList"><em>Loading...</em></p>
+
+<p>
+  <a [routerLink]="['/add-city']">Create New</a>
+</p>
+
+<table class='table' *ngIf="cityList">
+  <thead>
+    <tr>
+      <th>City id</th>
+      <th>City Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let city of cityList">
+      <td>{{ city.cityId }}</td>
+      <td>{{ city.cityName }}</td>
+      <td>
+      <td>
+        <a [routerLink]="['/city/edit/', city.cityId]">Edit</a> |
+        <a [routerLink]="" (click)="delete(city.cityId)">Delete</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
